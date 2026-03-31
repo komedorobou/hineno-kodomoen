@@ -427,6 +427,20 @@ body {
   margin-bottom: 14px;
 }
 
+.feature-card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.feature-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .feature-card-emoji {
   width: 48px;
   height: 48px;
@@ -986,6 +1000,9 @@ body {
 
   <div class="features-grid">
     <div class="feature-card fade-in fade-in-delay-1">
+      <div class="feature-card-img">
+        <img src="feature-outdoor.png" alt="戸外あそび" loading="lazy">
+      </div>
       <div class="feature-card-head">
         <div class="feature-card-emoji">🌳</div>
         <h3>戸外あそび</h3>
