@@ -596,6 +596,20 @@ body {
   text-align: center;
   border: 1px solid rgba(196,168,130,0.15);
   transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.community-item-img {
+  width: calc(100% + 40px);
+  margin: -28px -20px 20px;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.community-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .community-item:hover {
@@ -1098,6 +1112,9 @@ body {
 
   <div class="community-grid">
     <div class="community-item fade-in fade-in-delay-1">
+      <div class="community-item-img">
+        <img src="community-counseling.png" alt="育児相談" loading="lazy">
+      </div>
       <div class="community-item-num">01</div>
       <h4>育児相談</h4>
       <p>スマイルサポーターが<br>日根野地区子育てサロン<br>「ほほえみ」で<br>月2回相談をお受けします。</p>
