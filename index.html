@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ひねのこども園｜大阪府泉佐野市の認定こども園</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Yomogi&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #faf6ef;
+  --warm-beige: #f0e8d8;
+  --soft-brown: #c4a882;
+  --navy: #2d3a4a;
+  --navy-light: #3d4f63;
+  --leaf-green: #7a9e7e;
+  --leaf-light: #a8c5a0;
+  --sky-blue: #89b8cc;
+  --coral: #e8a090;
+  --white: #ffffff;
+  --text-dark: #3a3530;
+  --text-light: #6b6158;
+  --font-body: 'Zen Maru Gothic', 'Hiragino Maru Gothic Pro', sans-serif;
+  --font-hand: 'Yomogi', cursive;
+  --font-accent: 'Klee One', serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background: var(--cream);
+  overflow-x: hidden;
+  line-height: 1.8;
+}
+
+/* ===== HAND-DRAWN SVG DECORATIONS ===== */
+.deco-cloud {
+  position: absolute;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.deco-tree {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ===== HEADER / NAV ===== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(250, 246, 239, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(196, 168, 130, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--navy);
+}
+
+.logo-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.logo-text {
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+}
+
+.logo-sub {
+  font-size: 0.65rem;
+  color: var(--text-light);
+  font-family: var(--font-body);
+  display: block;
+  margin-top: -2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  color: var(--navy);
+  font-size: 0.75rem;
+  font-family: var(--font-hand);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: var(--warm-beige);
+}
+
+.nav-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(250,246,239,0.3) 0%, rgba(45,58,74,0.25) 100%),
+    url('https://images.unsplash.com/photo-1587654780014-15b8e3b2e0b0?w=1600&h=900&fit=crop') center/cover;
+  filter: brightness(1.05);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(250,246,239,0.1) 0%, rgba(250,246,239,0.5) 85%, var(--cream) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.hero-catch {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--font-accent);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--navy);
+  letter-spacing: 0.15em;
+  line-height: 2.2;
+  margin: 0 auto;
+  text-shadow: 0 0 30px rgba(250,246,239,0.9), 0 0 60px rgba(250,246,239,0.7);
+  display: inline-flex;
+  gap: 20px;
+}
+
+.hero-catch .line {
+  display: block;
+}
+
+.hero-name {
+  font-family: var(--font-hand);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--text-light);
+  margin-top: 30px;
+  text-shadow: 0 0 20px rgba(250,246,239,0.9);
+  writing-mode: horizontal-tb;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-light);
+  font-family: var(--font-hand);
+  font-size: 0.8rem;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-8px); }
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--soft-brown), transparent);
+}
+
+/* ===== SECTIONS COMMON ===== */
+.section {
+  padding: 80px 24px;
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title-en {
+  font-family: var(--font-hand);
+  font-size: 0.8rem;
+  color: var(--soft-brown);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.section-title-ja {
+  font-family: var(--font-accent);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: var(--navy);
+  letter-spacing: 0.1em;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title-deco {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.section-title-deco svg {
+  width: 28px;
+  height: 28px;
+  opacity: 0.35;
+}
+
+/* ===== ABOUT ===== */
+.about {
+  background: var(--navy);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.about .section-title-en { color: var(--sky-blue); }
+.about .section-title-ja { color: var(--white); }
+
+.about-subtitle {
+  font-family: var(--font-hand);
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: -30px;
+  margin-bottom: 50px;
+}
+
+.about-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.about-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 24px;
+  padding: 40px 24px 30px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, background 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.1);
+}
+
+.about-card-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-card-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.about-card h3 {
+  font-family: var(--font-accent);
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+}
+
+.about-card-en {
+  font-family: var(--font-hand);
+  font-size: 0.7rem;
+  color: var(--sky-blue);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.about-card p {
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.75);
+}
+
+.about-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  color: var(--sky-blue);
+  font-family: var(--font-hand);
+  font-size: 0.8rem;
+  text-decoration: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: rgba(137,184,204,0.1);
+  transition: background 0.3s ease;
+}
+
+.about-card-link:hover {
+  background: rgba(137,184,204,0.2);
+}
+
+/* ===== FEATURES / TOKUSHOKU ===== */
+.features {
+  background: var(--cream);
+}
+
+.features-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(196,168,130,0.15);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(196,168,130,0.15);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 20px 20px 0 0;
+}
+
+.feature-card:nth-child(1)::before { background: var(--leaf-green); }
+.feature-card:nth-child(2)::before { background: var(--sky-blue); }
+.feature-card:nth-child(3)::before { background: var(--coral); }
+.feature-card:nth-child(4)::before { background: var(--soft-brown); }
+
+.feature-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.feature-card-emoji {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.feature-card:nth-child(1) .feature-card-emoji { background: rgba(122,158,126,0.12); }
+.feature-card:nth-child(2) .feature-card-emoji { background: rgba(137,184,204,0.12); }
+.feature-card:nth-child(3) .feature-card-emoji { background: rgba(232,160,144,0.12); }
+.feature-card:nth-child(4) .feature-card-emoji { background: rgba(196,168,130,0.12); }
+
+.feature-card h3 {
+  font-family: var(--font-accent);
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+.feature-card p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+/* ===== KYUSHOKU (FOOD) ===== */
+.kyushoku {
+  background: var(--white);
+  overflow: hidden;
+}
+
+.kyushoku-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.kyushoku-image {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.kyushoku-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kyushoku-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  border: 3px dashed var(--soft-brown);
+  opacity: 0.3;
+  pointer-events: none;
+  margin: 8px;
+}
+
+.kyushoku-bubble {
+  position: relative;
+  background: var(--warm-beige);
+  border-radius: 28px;
+  padding: 36px 32px;
+}
+
+.kyushoku-bubble::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-right: 18px solid var(--warm-beige);
+}
+
+.kyushoku-bubble h3 {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.kyushoku-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.kyushoku-list li {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.7;
+}
+
+.kyushoku-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--leaf-green);
+  background: rgba(122,158,126,0.15);
+}
+
+/* ===== COMMUNITY / CHIIKI ===== */
+.community {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--warm-beige) 100%);
+  position: relative;
+}
+
+.community-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.community-item {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 28px 20px;
+  text-align: center;
+  border: 1px solid rgba(196,168,130,0.15);
+  transition: transform 0.3s ease;
+}
+
+.community-item:hover {
+  transform: translateY(-4px);
+}
+
+.community-item-num {
+  font-family: var(--font-hand);
+  font-size: 2rem;
+  color: var(--soft-brown);
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.community-item h4 {
+  font-family: var(--font-accent);
+  font-size: 0.95rem;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.community-item p {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ===== INFO ===== */
+.info {
+  background: var(--white);
+}
+
+.info-table-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 36px;
+  border: 1px solid rgba(196,168,130,0.2);
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table th,
+.info-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.9rem;
+  border-bottom: 1px dashed rgba(196,168,130,0.3);
+  vertical-align: top;
+}
+
+.info-table th {
+  font-family: var(--font-accent);
+  color: var(--navy);
+  white-space: nowrap;
+  width: 140px;
+  font-weight: 600;
+}
+
+.info-table td {
+  color: var(--text-light);
+}
+
+.info-table tr:last-child th,
+.info-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--navy);
+  color: var(--white);
+  padding: 60px 24px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--leaf-green), var(--sky-blue), var(--coral), var(--soft-brown));
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.footer-info h3 {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.footer-info-sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+}
+
+.footer-info p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 2;
+}
+
+.footer-info a {
+  color: var(--sky-blue);
+  text-decoration: none;
+}
+
+.footer-map {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  background: var(--navy-light);
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: saturate(0.8) brightness(0.9);
+}
+
+.footer-bottom {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.footer-bottom-links a {
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-bottom-links a:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+/* ===== FLOATING CTA ===== */
+.floating-cta {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--font-hand);
+  font-size: 0.85rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+}
+
+.cta-tel {
+  background: var(--leaf-green);
+  color: var(--white);
+}
+
+.cta-access {
+  background: var(--white);
+  color: var(--navy);
+  border: 1px solid rgba(196,168,130,0.3);
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
+
+/* ===== HAND-DRAWN WAVE DIVIDER ===== */
+.wave-divider {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  margin-top: -1px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; }
+
+  .hero-catch {
+    font-size: 1.6rem;
+    line-height: 2;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kyushoku-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .kyushoku-bubble::before { display: none; }
+
+  .community-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .floating-cta {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .cta-btn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+
+  .info-table th {
+    width: 100px;
+  }
+
+  .info-table-wrap {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 60px 16px; }
+
+  .hero-catch {
+    font-size: 1.4rem;
+    gap: 14px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <nav class="nav-inner">
+    <a href="#" class="logo">
+      <svg class="logo-icon" viewBox="0 0 44 44" fill="none">
+        <path d="M22 4 L22 16 M16 10 L28 10 M12 18 Q22 14 32 18 L30 38 Q22 42 14 38 Z" stroke="#2d3a4a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="19" cy="26" r="2" fill="#7a9e7e"/>
+        <circle cx="25" cy="26" r="2" fill="#7a9e7e"/>
+        <path d="M18 31 Q22 34 26 31" stroke="#e8a090" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+      <div>
+        <span class="logo-text">ひねのこども園</span>
+        <span class="logo-sub">社会福祉法人 日根野福祉会</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">
+        <svg class="nav-icon" viewBox="0 0 26 26" fill="none"><path d="M13 3 L13 8 M8 5 Q13 3 18 5 M6 10 Q13 7 20 10 L18 23 Q13 25 8 23 Z" stroke="#2d3a4a" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>
+        園のこと</a></li>
+      <li><a href="#features">
+        <svg class="nav-icon" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="11" r="5" stroke="#2d3a4a" stroke-width="1.3" fill="none"/><path d="M13 16 L13 22 M9 19 L17 19" stroke="#2d3a4a" stroke-width="1.3" stroke-linecap="round"/></svg>
+        園の特色</a></li>
+      <li><a href="#kyushoku">
+        <svg class="nav-icon" viewBox="0 0 26 26" fill="none"><ellipse cx="13" cy="16" rx="9" ry="5" stroke="#2d3a4a" stroke-width="1.3" fill="none"/><path d="M8 12 Q10 6 13 8 Q16 6 18 12" stroke="#2d3a4a" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>
+        給食のこと</a></li>
+      <li><a href="#community">
+        <svg class="nav-icon" viewBox="0 0 26 26" fill="none"><circle cx="9" cy="10" r="3" stroke="#2d3a4a" stroke-width="1.3" fill="none"/><circle cx="17" cy="10" r="3" stroke="#2d3a4a" stroke-width="1.3" fill="none"/><path d="M5 20 Q9 15 13 20 Q17 15 21 20" stroke="#2d3a4a" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>
+        地域のこと</a></li>
+      <li><a href="#info">
+        <svg class="nav-icon" viewBox="0 0 26 26" fill="none"><rect x="5" y="4" width="16" height="18" rx="2" stroke="#2d3a4a" stroke-width="1.3" fill="none"/><line x1="9" y1="9" x2="17" y2="9" stroke="#2d3a4a" stroke-width="1.3" stroke-linecap="round"/><line x1="9" y1="13" x2="15" y2="13" stroke="#2d3a4a" stroke-width="1.3" stroke-linecap="round"/></svg>
+        園の案内</a></li>
+    </ul>
+    <button class="mobile-menu-btn" aria-label="Menu">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><line x1="5" y1="8" x2="23" y2="8" stroke="#2d3a4a" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="14" x2="23" y2="14" stroke="#2d3a4a" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="20" x2="23" y2="20" stroke="#2d3a4a" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <!-- Hand-drawn cloud decorations -->
+  <svg class="deco-cloud" style="top:12%;left:5%;width:120px" viewBox="0 0 120 50"><path d="M20 35 Q10 35 10 28 Q10 20 20 20 Q22 12 32 12 Q40 8 48 14 Q52 10 60 12 Q70 8 78 14 Q88 10 95 16 Q105 14 108 22 Q115 24 112 32 Q112 38 100 38 Z" fill="#c4a882" opacity="0.15"/></svg>
+  <svg class="deco-cloud" style="top:8%;right:8%;width:90px" viewBox="0 0 120 50"><path d="M20 35 Q10 35 10 28 Q10 20 20 20 Q22 12 32 12 Q40 8 48 14 Q52 10 60 12 Q70 8 78 14 Q88 10 95 16 Q105 14 108 22 Q115 24 112 32 Q112 38 100 38 Z" fill="#89b8cc" opacity="0.12"/></svg>
+
+  <div class="hero-content">
+    <div class="hero-catch">
+      <span class="line">みんなで育つ、</span>
+      <span class="line">みんなで笑う。</span>
+    </div>
+    <p class="hero-name">ひねのこども園</p>
+  </div>
+
+  <div class="hero-scroll">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about section" id="about">
+  <div class="section-title fade-in">
+    <span class="section-title-en">this is hineno kodomoen</span>
+    <h2 class="section-title-ja">ひねのこども園は<br>こんなこども園です。</h2>
+  </div>
+  <p class="about-subtitle fade-in">体育・徳育を中心に、こどもたちの「生きるちから」を育みます。</p>
+
+  <div class="about-grid">
+    <div class="about-card fade-in fade-in-delay-1">
+      <div class="about-card-icon">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M20 6 Q12 6 10 14 Q8 20 12 24 L14 36 Q20 38 26 36 L28 24 Q32 20 30 14 Q28 6 20 6Z" stroke="#89b8cc" stroke-width="1.5" fill="none"/><circle cx="16" cy="18" r="1.5" fill="#89b8cc"/><circle cx="24" cy="18" r="1.5" fill="#89b8cc"/><path d="M16 24 Q20 27 24 24" stroke="#e8a090" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+      </div>
+      <h3>わたしたちの思い</h3>
+      <span class="about-card-en">policy</span>
+      <p>知育・体育・徳育の３つの柱。<br>特に体育と徳育を大切にし、<br>こどもたちの心と身体を<br>のびのびと育てます。</p>
+      <a href="#" class="about-card-link">詳しく見る →</a>
+    </div>
+
+    <div class="about-card fade-in fade-in-delay-2">
+      <div class="about-card-icon">
+        <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="14" width="28" height="20" rx="3" stroke="#a8c5a0" stroke-width="1.5" fill="none"/><path d="M10 14 L10 10 Q10 6 14 6 L26 6 Q30 6 30 10 L30 14" stroke="#a8c5a0" stroke-width="1.5" fill="none"/><path d="M14 22 L18 26 L26 18" stroke="#7a9e7e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </div>
+      <h3>園舎のご紹介</h3>
+      <span class="about-card-en">facility</span>
+      <p>JR日根野駅から徒歩5分。<br>関西空港からも近い好立地。<br>南側には緑豊かな自然が広がり、<br>四季折々の景色に出会えます。</p>
+      <a href="#" class="about-card-link">詳しく見る →</a>
+    </div>
+
+    <div class="about-card fade-in fade-in-delay-3">
+      <div class="about-card-icon">
+        <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="6" stroke="#e8a090" stroke-width="1.5" fill="none"/><path d="M8 34 Q8 24 20 24 Q32 24 32 34" stroke="#e8a090" stroke-width="1.5" fill="none"/><path d="M14 12 L14 8" stroke="#e8a090" stroke-width="1.5" stroke-linecap="round"/><path d="M26 12 L26 8" stroke="#e8a090" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <h3>園での生活</h3>
+      <span class="about-card-en">life</span>
+      <p>お散歩、縦割り保育、<br>食育にクッキング。<br>こどもたちの「やってみたい」を<br>大切に、毎日が冒険です。</p>
+      <a href="#" class="about-card-link">詳しく見る →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="features section" id="features">
+  <div class="section-title fade-in">
+    <span class="section-title-en">our features</span>
+    <h2 class="section-title-ja">園の特色</h2>
+    <div class="section-title-deco">
+      <svg viewBox="0 0 28 28"><path d="M14 4 L14 8 M8 14 L4 14 M24 14 L20 14 M14 24 L14 20 M8 8 L10 10 M18 10 L20 8 M10 18 L8 20 M18 18 L20 20" stroke="#c4a882" stroke-width="1.5" stroke-linecap="round"/><circle cx="14" cy="14" r="4" stroke="#c4a882" stroke-width="1.5" fill="none"/></svg>
+      <svg viewBox="0 0 28 28"><path d="M6 20 Q10 8 14 12 Q18 8 22 20" stroke="#7a9e7e" stroke-width="1.5" stroke-linecap="round" fill="none"/><line x1="14" y1="12" x2="14" y2="22" stroke="#7a9e7e" stroke-width="1.5"/></svg>
+      <svg viewBox="0 0 28 28"><path d="M8 20 Q14 6 20 20 Z" stroke="#89b8cc" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card fade-in fade-in-delay-1">
+      <div class="feature-card-head">
+        <div class="feature-card-emoji">🌳</div>
+        <h3>戸外あそび</h3>
+      </div>
+      <p>近くの日根野公園まで毎日お散歩。自然の中でかけっこしたり、虫を見つけたり。季節の移り変わりを全身で感じながら、のびのびと遊びます。</p>
+    </div>
+
+    <div class="feature-card fade-in fade-in-delay-2">
+      <div class="feature-card-head">
+        <div class="feature-card-emoji">🤝</div>
+        <h3>縦割り保育</h3>
+      </div>
+      <p>2〜5才の異年齢児が一緒に過ごします。お兄ちゃんお姉ちゃんとしての優しさ、年下を慕う気持ち。助け合う心が自然と育まれます。</p>
+    </div>
+
+    <div class="feature-card fade-in fade-in-delay-1">
+      <div class="feature-card-head">
+        <div class="feature-card-emoji">🥕</div>
+        <h3>食育活動</h3>
+      </div>
+      <p>野菜の栽培からクッキング体験まで。食べることへの興味が広がり、好きなものがどんどん増えていきます。年長さんは当番活動も。</p>
+    </div>
+
+    <div class="feature-card fade-in fade-in-delay-2">
+      <div class="feature-card-head">
+        <div class="feature-card-emoji">💪</div>
+        <h3>体育・徳育</h3>
+      </div>
+      <p>夏は泥んこ遊びにプール、日々の体操で丈夫な身体づくり。思いやりの心、ルールを守る力。生きる力の土台を育みます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KYUSHOKU ===== -->
+<section class="kyushoku section" id="kyushoku">
+  <div class="section-title fade-in">
+    <span class="section-title-en">school lunch</span>
+    <h2 class="section-title-ja">ひねのの給食</h2>
+  </div>
+
+  <div class="kyushoku-inner">
+    <div class="kyushoku-image fade-in">
+      <img src="https://images.unsplash.com/photo-1604152135912-04a022e23696?w=600&h=450&fit=crop" alt="給食イメージ" loading="lazy">
+    </div>
+
+    <div class="kyushoku-bubble fade-in fade-in-delay-2">
+      <h3>素材にも食器にもこだわった<br>ひねのの給食とは？</h3>
+      <ul class="kyushoku-list">
+        <li>旬の食材を使い、季節を感じる献立づくり</li>
+        <li>一つひとつ手作り、心を込めた食事</li>
+        <li>JAから届く新鮮なお米を使用</li>
+        <li>味覚形成に大切な時期だから、薄味に</li>
+        <li>本物に触れる白磁の食器</li>
+        <li>アレルギー対応（除去食・代替食）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMUNITY ===== -->
+<section class="community section" id="community">
+  <div class="section-title fade-in">
+    <span class="section-title-en">community</span>
+    <h2 class="section-title-ja">地域とともに</h2>
+  </div>
+
+  <div class="community-grid">
+    <div class="community-item fade-in fade-in-delay-1">
+      <div class="community-item-num">01</div>
+      <h4>育児相談</h4>
+      <p>スマイルサポーターが<br>日根野地区子育てサロン<br>「ほほえみ」で<br>月2回相談をお受けします。</p>
+    </div>
+    <div class="community-item fade-in fade-in-delay-2">
+      <div class="community-item-num">02</div>
+      <h4>園庭開放</h4>
+      <p>月曜日（第1〜第3）に<br>園庭を地域のご家庭に開放。<br>こども園での遊びを<br>一緒に楽しみましょう。</p>
+    </div>
+    <div class="community-item fade-in fade-in-delay-3">
+      <div class="community-item-num">03</div>
+      <h4>世代間交流</h4>
+      <p>長生会や老人ホームの方々と<br>ふれあいの時間。<br>こどもの笑顔が、地域の<br>元気につながります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INFO ===== -->
+<section class="info section" id="info">
+  <div class="section-title fade-in">
+    <span class="section-title-en">information</span>
+    <h2 class="section-title-ja">園の案内</h2>
+  </div>
+
+  <div class="info-table-wrap fade-in">
+    <table class="info-table">
+      <tr><th>園名</th><td>ひねのこども園（幼保連携型認定こども園）</td></tr>
+      <tr><th>運営</th><td>社会福祉法人 日根野福祉会</td></tr>
+      <tr><th>所在地</th><td>〒598-0021 大阪府泉佐野市日根野7277</td></tr>
+      <tr><th>電話</th><td>072-468-0345</td></tr>
+      <tr><th>FAX</th><td>072-468-0346</td></tr>
+      <tr><th>定員</th><td>200名（1号認定15人 / 2・3号認定200人）</td></tr>
+      <tr><th>対象</th><td>0才児〜就学前</td></tr>
+      <tr><th>開園時間</th><td>7:00〜19:00（土曜も同様）</td></tr>
+      <tr><th>教育時間</th><td>9:00〜16:00（平日のみ）</td></tr>
+      <tr><th>アクセス</th><td>JR阪和線 日根野駅より徒歩5分</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-info">
+      <h3>ひねのこども園</h3>
+      <p class="footer-info-sub">社会福祉法人 日根野福祉会 ／ 幼保連携型認定こども園</p>
+      <p>
+        〒598-0021<br>
+        大阪府泉佐野市日根野7277<br><br>
+        TEL：<a href="tel:072-468-0345">072-468-0345</a><br>
+        FAX：072-468-0346<br><br>
+        開園時間：7:00〜19:00<br>
+        休園日：日曜・祝日・年末年始
+      </p>
+    </div>
+    <div class="footer-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3291.5!2d135.3277!3d34.3955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDIzJzQ0LjAiTiAxMzXCsDE5JzM5LjciRQ!5e0!3m2!1sja!2sjp!4v1" loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 ひねのこども園 All Rights Reserved.</p>
+    <ul class="footer-bottom-links">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- ===== FLOATING CTA ===== -->
+<div class="floating-cta">
+  <a href="tel:072-468-0345" class="cta-btn cta-tel">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 2 L7 2 L8.5 6 L6.5 7.5 Q8 10.5 10.5 11.5 L12 9.5 L16 11 L16 14 Q16 16 14 16 Q4 15 2 4 Q2 2 4 2Z" stroke="white" stroke-width="1.5" fill="none"/></svg>
+    お電話
+  </a>
+  <a href="#info" class="cta-btn cta-access">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2 Q4 2 4 7 Q4 12 9 16 Q14 12 14 7 Q14 2 9 2Z" stroke="#2d3a4a" stroke-width="1.5" fill="none"/><circle cx="9" cy="7" r="2" stroke="#2d3a4a" stroke-width="1.5" fill="none"/></svg>
+    アクセス
+  </a>
+</div>
+
+<script>
+// Scroll animation observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Header hide/show on scroll
+let lastScroll = 0;
+const header = document.querySelector('.site-header');
+window.addEventListener('scroll', () => {
+  const current = window.scrollY;
+  if (current > 100 && current > lastScroll) {
+    header.style.transform = 'translateY(-100%)';
+  } else {
+    header.style.transform = 'translateY(0)';
+  }
+  lastScroll = current;
+}, { passive: true });
+
+// Mobile menu
+const menuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+menuBtn?.addEventListener('click', () => {
+  if (navLinks.style.display === 'flex') {
+    navLinks.style.display = 'none';
+  } else {
+    navLinks.style.display = 'flex';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '100%';
+    navLinks.style.left = '0';
+    navLinks.style.right = '0';
+    navLinks.style.background = 'rgba(250,246,239,0.98)';
+    navLinks.style.padding = '16px';
+    navLinks.style.borderBottom = '1px solid rgba(196,168,130,0.2)';
+  }
+});
+</script>
+</body>
+</html>
